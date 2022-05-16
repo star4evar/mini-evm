@@ -15,4 +15,4 @@ EVM_RECURSION_LIMIT = 1024 * 12
 sys.setrecursionlimit(max(EVM_RECURSION_LIMIT, sys.getrecursionlimit()))
 
 
-__version__ = pkg_resources.get_distribution("py-evm").version
+# __version__ = pkg_resources.get_distribution("py-evm").version

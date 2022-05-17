@@ -1,6 +1,7 @@
 from eth.demo import _helper as helper
 
 from eth_utils import from_wei, to_wei
+
 from eth.web3support.local import LocalWeb3
 
 from web3.eth import Contract
@@ -16,6 +17,7 @@ def run():
     abi, bytecode = helper.get_contract_info("erc20_assets/ERC20.json")
     pub, pri = accounts[0].public_key, accounts[0].private_key
 
+
     ####################################################################################################################
     ## deploy the contract
     ####################################################################################################################
@@ -23,6 +25,7 @@ def run():
 
     totalSupply = contract.functions.totalSupply().call()
     print("total supply right after deploy:", from_wei(totalSupply, 'ether') )
+
 
     ####################################################################################################################
     ## mint some token and test
@@ -34,6 +37,7 @@ def run():
     print("total supply after mint:", from_wei(totalSupply, 'ether') )
     print("balance of account mint to:", from_wei(balance0, 'ether') )
 
+
     ####################################################################################################################
     ## transfer 200 to another account, and test
     ####################################################################################################################
@@ -43,6 +47,7 @@ def run():
     balance1 = contract.functions.balanceOf(accounts[1].public_key).call()
     print("balance of sender after transfer:", from_wei(balance0, 'ether') )
     print("balance of receiver after transfer:", from_wei(balance1, 'ether') )
+
 
     ####################################################################################################################
     ## approve 99999 , and test

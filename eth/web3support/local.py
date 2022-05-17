@@ -224,7 +224,7 @@ class LocalWeb3Provider(BaseProvider):
         self.add_receipt(0, tx, receipt, computation, new_block)
 
         if computation.is_success:
-            return {'jsonrpc': '2.0', 'id': self.nextId, 'result': tx.hash}
+            return {'jsonrpc': '2.0', 'id': self.nextId, 'result': encode_hex(tx.hash)}
         else:
             error_type = type(computation.error).__name__
             error_info = str(computation.output[4:].replace(b'\x00', b'')[2:], 'ascii')

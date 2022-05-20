@@ -10,7 +10,6 @@ def run():
 
     chain = helper.get_chain()
 
-    # 使用 py-evm 的 web3 provider. 如果要切换回默认的 http provider, 请注释掉此行
     accounts = helper.get_test_accounts()
     w3 = LocalWeb3(chain)
 

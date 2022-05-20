@@ -1,5 +1,4 @@
-
-#This is a fork of [py-evm](https://github.com/ethereum/py-evm)
+# This is a fork of [py-evm](https://github.com/ethereum/py-evm)
 
 I have added a [redis db support](eth/db/backends/redisdb.py) for AtomicDB,
 to save data in a separated process so as to keep python process clean.

@@ -235,7 +235,9 @@ class LocalWeb3Provider(BaseProvider):
 
 
     # params = {list} <class 'list'>: ['0xc6c234b439a2d39ad08081ad5ea3e41f94335fb6e42511563bed5863f5b62f4a']
-    # response = {dict} <class 'dict'>: {'jsonrpc': '2.0', 'id': 147, 'result': {'transactionHash': '0xc6c234b439a2d39ad08081ad5ea3e41f94335fb6e42511563bed5863f5b62f4a', 'transactionIndex': '0x0', 'blockHash': '0x53de40d48918f308722b62ee8a53bdde5d4ccebf5886d29d6509fa8ed9cba94a',
+    # response = {dict} <class 'dict'>: {'jsonrpc': '2.0', 'id': 147, 'result': {'transactionHash':
+    #   '0xc6c234b439a2d39ad08081ad5ea3e41f94335fb6e42511563bed5863f5b62f4a', 'transactionIndex': '0x0',
+    #   'blockHash': '0x53de40d48918f308722b62ee8a53bdde5d4ccebf5886d29d6509fa8ed9cba94a', ...}
     def eth_getTransactionReceipt(self, params: Any):
         hash = params[0]
         # receipt = self.chain.get_transaction_receipt(decode_hex(hash))
@@ -252,7 +254,8 @@ class LocalWeb3Provider(BaseProvider):
 
     # "params": [{"to": "0xb09bCc172050fBd4562da8b229Cf3E45Dc3045A6",
     #               "data": "0x70a0823100000000000000000000000090f8bf6a479f320ead074411a4b0e7944ea8c9c1"}, "latest"],
-    # response = {dict} <class 'dict'>: {'jsonrpc': '2.0', 'id': 154, 'result': '0x0000000000000000000000000000000000000000000014ea0fb67c9a6f140000'}
+    # response = {dict} <class 'dict'>: {'jsonrpc': '2.0', 'id': 154,
+    # 'result': '0x0000000000000000000000000000000000000000000014ea0fb67c9a6f140000'}
     def eth_call(self, params: Any):
         param, state = params[0], self.chain.get_vm().state
         to = decode_hex(param["to"])

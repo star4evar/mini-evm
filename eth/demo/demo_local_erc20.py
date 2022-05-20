@@ -34,7 +34,7 @@ def run():
 
     totalSupply = contract.functions.totalSupply().call()
     balance0 = contract.functions.balanceOf(pub).call()
-    print("total supply after mint:", from_wei(totalSupply, 'ether') )
+    print("\ntotal supply after mint:", from_wei(totalSupply, 'ether') )
     print("balance of account mint to:", from_wei(balance0, 'ether') )
 
 
@@ -45,7 +45,7 @@ def run():
 
     balance0 = contract.functions.balanceOf(pub).call()
     balance1 = contract.functions.balanceOf(accounts[1].public_key).call()
-    print("balance of sender after transfer:", from_wei(balance0, 'ether') )
+    print("\nbalance of sender after transfer:", from_wei(balance0, 'ether') )
     print("balance of receiver after transfer:", from_wei(balance1, 'ether') )
 
 
@@ -55,7 +55,7 @@ def run():
     recp = approve(w3, contract, pub, pri, accounts[3].public_key, to_wei(99999, 'ether'))
 
     allowance = contract.functions.allowance(pub, accounts[3].public_key).call()
-    print("allowance after approve:", from_wei(allowance, 'ether') )
+    print("\nallowance after approve:", from_wei(allowance, 'ether') )
 
 
 

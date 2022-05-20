@@ -9,6 +9,7 @@ from eth_utils import to_wei, decode_hex
 from eth import constants
 from eth.chains.base import MiningChain
 from eth.consensus.noproof import NoProofConsensus
+from eth.db.atomic import AtomicDB
 from eth.db.backends.redisdb import AtomicRedis
 from eth.vm.forks.london import LondonVM
 
@@ -82,7 +83,9 @@ def get_redis_conn():
 
 @lru_cache(maxsize=1)
 def get_chain():
-    atomic_db = AtomicRedis(get_redis_conn())
+
+    atomic_db = AtomicDB()
+    # atomic_db = AtomicRedis(get_redis_conn())
 
     balance = to_wei(10000, 'ether')
     accounts = get_test_accounts()

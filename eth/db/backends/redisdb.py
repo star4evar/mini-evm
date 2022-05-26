@@ -55,7 +55,7 @@ class AtomicRedisWriteBatch(AtomicDBWriteBatch):
 
 
     def _commit(self) -> None:
-        redis_inst: AtomicRedis = self.atomic_redis.redis_inst
+        redis_inst: StrictRedis = self.atomic_redis.redis_inst
 
         p = redis_inst.pipeline()
         p.multi()
@@ -75,3 +75,4 @@ class AtomicRedisWriteBatch(AtomicDBWriteBatch):
     def batch_over(self):
         self._track_diff = None
         self._write_target_db = None
+
